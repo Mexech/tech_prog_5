@@ -21,6 +21,7 @@ class Keeper {
         void save();
         void load();
         void free();
+        void find(string query);
 
         bool isEmpty();
         Node *getHead();

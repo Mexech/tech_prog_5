@@ -40,7 +40,7 @@
 using namespace std;
 
 void dispMenu() {
-    cout << "1 - add new Factory\n2 - display factories\n3 - edit factory\n4 - remove Factory\n5 - load factories\n6 - save factories\n7 - exit\n";
+    cout << "1 - add new Factory\n2 - display factories\n3 - edit factory\n4 - remove Factory\n5 - load factories\n6 - save factories\n7 - find\n8 - exit\n";
 }
 
 int main() {
@@ -95,6 +95,14 @@ int main() {
                 cout << "Keeper is empty. Not saved." << endl;
             }
         } else if (num == 7) {
+            cout << "Specify the query(<parameter> <value>):" << endl;
+            string parameter, val; cin >> parameter >> val;
+            try {
+                k.find(parameter + ": " + val);
+            } catch(const exception &e) {
+                cout << e.what() << endl;
+            }
+        } else if (num == 8) {
             break;
         } else {
             cout << "No such command. Try again." << endl;

@@ -127,6 +127,21 @@ void Keeper::free() {
     head = NULL; tail = NULL; amount = 0;
 }
 
+void Keeper::find(string query) {
+    checkEmptiness();
+    Node *tmp = head;
+    bool found = false;
+    do {
+        string params = tmp->data->getFormattedParams();
+        if (params.find(query) != string::npos) {
+            found = true;
+            cout << tmp->data;
+        }
+    } while (tmp->next != NULL, tmp = tmp->next);
+    if (!found)
+        throw invalid_argument("Query failed. Try again.");
+}
+
 bool Keeper::isEmpty() {
     return head == NULL;
 }
